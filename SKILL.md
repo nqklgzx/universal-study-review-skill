@@ -1,6 +1,7 @@
 ---
 name: universal-study-review
-description: Use this skill to turn any course, exam, textbook/PPT/note set, or certification prep into a reusable source-grounded study workflow: material index, module map, formula/definition extraction, teacher-priority integration, problem-solving templates, error review, and exam quick-review notes. Trigger on study planning, review workflow design, course-material organization, exam preparation, prompt-template generation, and source-first academic Q&A.
+description: >
+  Use this skill to turn any course, exam, textbook/PPT/note set, or certification prep into a reusable source-grounded study workflow. It builds material indexes, module maps, formula and definition extraction, teacher-priority integration, problem-solving templates, error review, and exam quick-review notes. Trigger on study planning, review workflow design, course-material organization, exam preparation, prompt-template generation, and source-first academic Q&A.
 ---
 
 # Universal Study Review Workflow
