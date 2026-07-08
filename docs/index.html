@@ -8,13 +8,13 @@
 </head>
 <body>
   <header>
-    <p class="eyebrow">Agent Skill · Prompt Workflow · GitHub Pages</p>
+    <p class="eyebrow">Agent Skill · Study Workflow · Source-Grounded Review</p>
     <h1>通用学科复习标准流程与提示词 Skill</h1>
-    <p class="lead">把任何学科的资料整理、章节复习、题型训练、错题复盘和考前速看转化为可复制、可追溯、可迭代的标准流程。</p>
+    <p class="lead">一个面向任何学科的复习工作流项目：把教材、PPT、笔记、录音、题库和错题整理成“可查阅、可复用、可迭代”的 AI 复习系统。</p>
     <div class="actions">
+      <a href="#overview">项目介绍</a>
+      <a href="#workflow">工作流</a>
       <a href="https://github.com/nqklgzx/universal-study-review-skill" target="_blank" rel="noopener">进入 GitHub 项目</a>
-      <a href="https://github.com/nqklgzx/universal-study-review-skill/blob/main/SKILL.md" target="_blank" rel="noopener">查看 SKILL.md</a>
-      <a href="https://github.com/nqklgzx/universal-study-review-skill/blob/main/references/full_workflow_and_prompt_templates.md" target="_blank" rel="noopener">完整 Markdown</a>
       <a href="https://github.com/nqklgzx/universal-study-review-skill/blob/main/references/prompt_template_library.md" target="_blank" rel="noopener">提示词库</a>
     </div>
   </header>
@@ -22,41 +22,59 @@
   <main>
     <aside class="toc">
       <h2>页面目录</h2>
-      <a href="#install">一键安装</a>
-      <a href="#codex">Codex 调用</a>
+      <a href="#overview">项目介绍</a>
+      <a href="#problems">解决的问题</a>
       <a href="#workflow">复习工作流</a>
+      <a href="#outputs">产物结构</a>
+      <a href="#examples">示例场景</a>
       <a href="#files">项目文件结构</a>
+      <a href="#install">安装与使用</a>
       <a href="#links">常用入口</a>
     </aside>
 
     <div class="content">
-      <section id="install" class="card">
-        <h2>一键安装</h2>
-        <p class="purpose">下面给出三种安装方式。推荐先用 skills 安装器；Windows 用户也可以直接用 PowerShell。</p>
-
-        <h3>方式一：skills 安装器</h3>
-        <button class="copy" data-target="cmd-npx">复制命令</button>
-        <pre><code id="cmd-npx">npx skills@latest add nqklgzx/universal-study-review-skill</code></pre>
-
-        <h3>方式二：Windows PowerShell 远程安装到当前仓库</h3>
-        <button class="copy" data-target="cmd-ps-remote">复制命令</button>
-        <pre><code id="cmd-ps-remote">powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/nqklgzx/universal-study-review-skill/main/scripts/bootstrap-codex-skill.ps1 | iex"</code></pre>
-
-        <h3>方式三：本地克隆后安装到目标仓库</h3>
-        <button class="copy" data-target="cmd-ps-local">复制命令</button>
-        <pre><code id="cmd-ps-local">powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\install-codex-skill.ps1 -TargetRepo "D:\Your\CourseRepo" -Force -UpdateAgents</code></pre>
+      <section id="overview" class="card hero-card">
+        <p class="section-kicker">Project Overview</p>
+        <h2>这是什么项目</h2>
+        <p>Universal Study Review Skill 是一套通用的 AI 复习工作流。它不是单一提示词，而是一组可部署到 GitHub、Codex、Markdown 软件和网页中的复习流程模板。</p>
+        <p>核心目标是：先建立资料索引，再重构课程知识脉络，再融合老师重点和题型训练，最后生成考前速看材料。后续所有问答都先定位资料来源，再进行解释或解题。</p>
+        <div class="tag-list">
+          <span>资料查阅清单</span>
+          <span>章节知识脉络</span>
+          <span>公式与方法提取</span>
+          <span>题型库</span>
+          <span>错题复盘</span>
+          <span>考前速看</span>
+          <span>Codex Skill</span>
+          <span>GitHub Pages</span>
+        </div>
       </section>
 
-      <section id="codex" class="card">
-        <h2>Codex 调用方式</h2>
-        <p class="purpose">安装后，在目标课程仓库里让 Codex 直接调用该 skill。</p>
-        <button class="copy" data-target="cmd-codex-en">复制英文调用</button>
-        <pre><code id="cmd-codex-en">Use $universal-study-review to build a material index and review workflow for this course.</code></pre>
-        <button class="copy" data-target="cmd-codex-zh">复制中文调用</button>
-        <pre><code id="cmd-codex-zh">使用 $universal-study-review，把这门课的资料整理成复习查阅清单、章节脉络、题型模板和考前速看资料。</code></pre>
+      <section id="problems" class="card">
+        <p class="section-kicker">Why</p>
+        <h2>它解决什么问题</h2>
+        <div class="feature-grid">
+          <div>
+            <h3>资料多但不可查</h3>
+            <p>PPT、教材、笔记、题库堆在一起时，先生成资料索引，保留文件结构、章节定位和使用规则。</p>
+          </div>
+          <div>
+            <h3>总结太概括</h3>
+            <p>要求按章节、页码、公式、条件、题型和易错点整理，不用空泛概括替代具体内容。</p>
+          </div>
+          <div>
+            <h3>AI 容易脱离资料</h3>
+            <p>后续问答默认先查阅资料清单，再定位原文件，无法验证时明确说明缺失信息。</p>
+          </div>
+          <div>
+            <h3>做题过程不标准</h3>
+            <p>题目解答按“考点定位—读题分析—解题思路—具体推导—最终答案—易错点”输出。</p>
+          </div>
+        </div>
       </section>
 
       <section id="workflow" class="card">
+        <p class="section-kicker">Workflow</p>
         <h2>标准复习工作流</h2>
         <div class="flow-grid">
           <div><strong>S00</strong><span>设定复习助手角色</span></div>
@@ -73,10 +91,31 @@
           <div><strong>S11</strong><span>后续问答时按资料定位回答</span></div>
           <div><strong>S12</strong><span>迭代更新资料库和提示词</span></div>
         </div>
-        <p class="purpose">完整提示词请进入：<a href="https://github.com/nqklgzx/universal-study-review-skill/blob/main/references/prompt_template_library.md" target="_blank" rel="noopener">Prompt Template Library</a>。</p>
+      </section>
+
+      <section id="outputs" class="card">
+        <p class="section-kicker">Outputs</p>
+        <h2>最终会得到哪些复习产物</h2>
+        <div class="feature-grid">
+          <div><h3>资料查阅清单</h3><p>列出每个文件的内容、结构、章节定位、可查阅知识点和后续使用规则。</p></div>
+          <div><h3>章节/模块脉络</h3><p>按资料原顺序整理每部分讲什么、公式条件、题型对应和重要程度。</p></div>
+          <div><h3>题型库与模板</h3><p>把知识点转化为标准题型，形成可复用的解题步骤和检查方法。</p></div>
+          <div><h3>考前速看资料</h3><p>压缩为高频考点、核心公式、适用条件、标准方法和最后易错点。</p></div>
+        </div>
+      </section>
+
+      <section id="examples" class="card">
+        <p class="section-kicker">Examples</p>
+        <h2>示例场景</h2>
+        <div class="link-grid">
+          <a href="https://github.com/nqklgzx/universal-study-review-skill/blob/main/examples/signals-and-systems.md" target="_blank" rel="noopener">信号与系统复习示例</a>
+          <a href="https://github.com/nqklgzx/universal-study-review-skill/blob/main/examples/digital-logic.md" target="_blank" rel="noopener">数字电路复习示例</a>
+          <a href="https://github.com/nqklgzx/universal-study-review-skill/blob/main/examples/ai-math-foundations.md" target="_blank" rel="noopener">人工智能数学基础复习示例</a>
+        </div>
       </section>
 
       <section id="files" class="card">
+        <p class="section-kicker">Repository</p>
         <h2>项目文件结构</h2>
         <pre><code>universal-study-review-skill/
 ├── SKILL.md
@@ -92,15 +131,40 @@
 └── .agents/skills/universal-study-review/</code></pre>
       </section>
 
+      <section id="install" class="card install-card">
+        <p class="section-kicker">Install</p>
+        <h2>安装与使用</h2>
+        <p class="purpose">安装命令放在这里，作为项目内容之后的使用入口。</p>
+
+        <h3>方式一：skills 安装器</h3>
+        <button class="copy" data-target="cmd-npx">复制命令</button>
+        <pre><code id="cmd-npx">npx skills@latest add nqklgzx/universal-study-review-skill</code></pre>
+
+        <h3>方式二：Windows PowerShell 远程安装到当前仓库</h3>
+        <button class="copy" data-target="cmd-ps-remote">复制命令</button>
+        <pre><code id="cmd-ps-remote">powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/nqklgzx/universal-study-review-skill/main/scripts/bootstrap-codex-skill.ps1 | iex"</code></pre>
+
+        <h3>方式三：本地克隆后安装到目标仓库</h3>
+        <button class="copy" data-target="cmd-ps-local">复制命令</button>
+        <pre><code id="cmd-ps-local">powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\install-codex-skill.ps1 -TargetRepo "D:\Your\CourseRepo" -Force -UpdateAgents</code></pre>
+
+        <h3>Codex 调用</h3>
+        <button class="copy" data-target="cmd-codex-zh">复制中文调用</button>
+        <pre><code id="cmd-codex-zh">使用 $universal-study-review，把这门课的资料整理成复习查阅清单、章节脉络、题型模板和考前速看资料。</code></pre>
+      </section>
+
       <section id="links" class="card">
+        <p class="section-kicker">Links</p>
         <h2>常用入口</h2>
         <div class="link-grid">
           <a href="https://github.com/nqklgzx/universal-study-review-skill" target="_blank" rel="noopener">GitHub 项目主页</a>
+          <a href="https://github.com/nqklgzx/universal-study-review-skill/blob/main/SKILL.md" target="_blank" rel="noopener">根目录 SKILL.md</a>
           <a href="https://github.com/nqklgzx/universal-study-review-skill/tree/main/scripts" target="_blank" rel="noopener">Windows 安装脚本</a>
           <a href="https://github.com/nqklgzx/universal-study-review-skill/tree/main/skills/study" target="_blank" rel="noopener">Skills 分类目录</a>
+          <a href="https://github.com/nqklgzx/universal-study-review-skill/blob/main/references/full_workflow_and_prompt_templates.md" target="_blank" rel="noopener">完整 Markdown</a>
+          <a href="https://github.com/nqklgzx/universal-study-review-skill/blob/main/references/prompt_template_library.md" target="_blank" rel="noopener">提示词库</a>
           <a href="https://github.com/nqklgzx/universal-study-review-skill/tree/main/examples" target="_blank" rel="noopener">示例目录</a>
           <a href="https://github.com/nqklgzx/universal-study-review-skill/tree/main/evals" target="_blank" rel="noopener">Evals 测试集</a>
-          <a href="https://github.com/nqklgzx/universal-study-review-skill/blob/main/CHANGELOG.md" target="_blank" rel="noopener">版本日志</a>
         </div>
       </section>
     </div>
