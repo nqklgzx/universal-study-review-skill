@@ -1,6 +1,7 @@
 ---
 name: setup-universal-study-review
-description: Configure a repository to use the Universal Study Review workflow. Explore the repo, understand its learning context, confirm preferences, and create the required study workflow configuration.
+description: >
+  Configure a repository to use the Universal Study Review workflow. Explore the repo, understand its learning context, confirm preferences, and create the required study workflow configuration.
 disable-model-invocation: true
 ---
 
