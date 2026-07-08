@@ -1,6 +1,7 @@
 ---
 name: universal-study-review
-description: Build a source-grounded study workflow for any subject. Use when organizing course materials, exams, textbooks, notes, lectures, problem sets, or creating review systems with indexes, knowledge maps, problem templates, and quick-review notes.
+description: >
+  Build a source-grounded study workflow for any subject. Use when organizing course materials, exams, textbooks, notes, lectures, problem sets, or creating review systems with indexes, knowledge maps, problem templates, and quick-review notes.
 ---
 
 # Universal Study Review
