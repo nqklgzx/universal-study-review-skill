@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skill 工作流｜通用学科复习提示词集</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <p class="eyebrow">Skill Workflow · Codex Invocation · Automation Layer</p>
+    <h1>Skill 工作流</h1>
+    <p class="lead">提示词可以手动复制使用；如果想让 Codex 在仓库里按固定流程自动完成资料整理、题型模板和考前速看，就调用 Skill 工作流。</p>
+    <div class="actions">
+      <a href="https://github.com/nqklgzx/universal-study-review-skill" target="_blank" rel="noopener">GitHub 项目地址</a>
+      <a href="https://github.com/nqklgzx/universal-study-review-skill/blob/main/SKILL.md" target="_blank" rel="noopener">查看 SKILL.md</a>
+      <a href="https://github.com/nqklgzx/universal-study-review-skill/tree/main/scripts" target="_blank" rel="noopener">安装脚本</a>
+    </div>
+    <nav class="page-tabs" aria-label="页面切换">
+      <a href="index.html">提示词集</a>
+      <a class="active" href="workflow.html">Skill 工作流</a>
+    </nav>
+  </header>
+
+  <main>
+    <aside class="toc">
+      <h2>工作流目录</h2>
+      <a href="#manual-vs-skill">提示词 vs Skill</a>
+      <a href="#when-to-call">什么时候调用</a>
+      <a href="#what-it-does">会做什么</a>
+      <a href="#install">安装方式</a>
+      <a href="#invoke">调用方式</a>
+      <a href="#scenarios">场景指令</a>
+      <a href="#outputs">输出产物</a>
+      <a href="#rules">执行规则</a>
+    </aside>
+
+    <div class="content">
+      <section id="manual-vs-skill" class="card hero-card">
+        <p class="section-kicker">Concept</p>
+        <h2>提示词和 Skill 的关系</h2>
+        <p>这套项目的主要内容仍然是提示词。你可以直接复制首页的 S00–S12 提示词完成任何具体任务。</p>
+        <p>Skill 工作流相当于“自动执行层”：当你希望 Codex 在一个课程仓库中持续读取资料、生成文档、更新索引、维护错题和考前速看时，就调用 Skill。</p>
+        <div class="feature-grid">
+          <div><h3>直接用提示词</h3><p>适合单次整理、单题讲解、单章总结、临时问答。复制对应提示词即可。</p></div>
+          <div><h3>调用 Skill</h3><p>适合长期项目、资料很多、需要 Codex 自动写入 Markdown 文件、希望形成可维护复习仓库。</p></div>
+        </div>
+      </section>
+
+      <section id="when-to-call" class="card">
+        <p class="section-kicker">When</p>
+        <h2>什么时候调用 Skill</h2>
+        <div class="feature-grid">
+          <div><h3>资料很多</h3><p>你有教材、PPT、讲义、题库、录音总结，需要先生成资料查阅清单。</p></div>
+          <div><h3>想做成长期项目</h3><p>你希望每次新增资料后都能更新索引、章节脉络、错题和速看资料。</p></div>
+          <div><h3>想让 Codex 写文件</h3><p>你希望直接在仓库中生成 Markdown 文件，而不是只在聊天窗口里查看答案。</p></div>
+          <div><h3>想统一输出规范</h3><p>你希望所有题解、概念讲解、章节总结都按照同一套考试复习格式输出。</p></div>
+        </div>
+      </section>
+
+      <section id="what-it-does" class="card">
+        <p class="section-kicker">Workflow</p>
+        <h2>Skill 会按什么流程执行</h2>
+        <div class="flow-grid">
+          <div><strong>1</strong><span>先检查仓库和资料结构</span></div>
+          <div><strong>2</strong><span>确认学科、考试目标和资料优先级</span></div>
+          <div><strong>3</strong><span>建立资料查阅清单</span></div>
+          <div><strong>4</strong><span>整理章节脉络和公式方法</span></div>
+          <div><strong>5</strong><span>融合老师重点和考试要求</span></div>
+          <div><strong>6</strong><span>建立题型模板和错题规则</span></div>
+          <div><strong>7</strong><span>生成考前速看资料</span></div>
+          <div><strong>8</strong><span>后续新增资料时迭代更新</span></div>
+        </div>
+      </section>
+
+      <section id="install" class="card install-card">
+        <p class="section-kicker">Install</p>
+        <h2>安装方式</h2>
+        <h3>方式一：skills 安装器</h3>
+        <button class="copy" data-target="cmd-npx">复制命令</button>
+        <pre><code id="cmd-npx">npx skills@latest add nqklgzx/universal-study-review-skill</code></pre>
+        <h3>方式二：Windows PowerShell 远程安装到当前仓库</h3>
+        <button class="copy" data-target="cmd-ps">复制命令</button>
+        <pre><code id="cmd-ps">powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/nqklgzx/universal-study-review-skill/main/scripts/bootstrap-codex-skill.ps1 | iex"</code></pre>
+      </section>
+
+      <section id="invoke" class="card">
+        <p class="section-kicker">Invocation</p>
+        <h2>如何调用</h2>
+        <h3>首次配置课程仓库</h3>
+        <button class="copy" data-target="cmd-setup">复制指令</button>
+        <pre><code id="cmd-setup">Use /setup-universal-study-review to configure this course repository.</code></pre>
+        <h3>正式执行复习工作流</h3>
+        <button class="copy" data-target="cmd-call-zh">复制中文指令</button>
+        <pre><code id="cmd-call-zh">使用 $universal-study-review，把这门课的资料整理成复习查阅清单、章节脉络、题型模板和考前速看资料。</code></pre>
+        <button class="copy" data-target="cmd-call-en">复制英文指令</button>
+        <pre><code id="cmd-call-en">Use $universal-study-review to build a material index and review workflow for this course.</code></pre>
+      </section>
+
+      <section id="scenarios" class="card">
+        <p class="section-kicker">Scenarios</p>
+        <h2>不同场景怎么说</h2>
+        <div class="scenario-list">
+          <div><h3>想整理一堆资料</h3><button class="copy" data-target="sc-1">复制</button><pre><code id="sc-1">使用 $universal-study-review，先遍历当前仓库中的课程资料，生成资料查阅清单。要求保留文件名、章节结构、页码或资料位置、可查阅知识点和后续回答规则。</code></pre></div>
+          <div><h3>想按章节生成复习笔记</h3><button class="copy" data-target="sc-2">复制</button><pre><code id="sc-2">使用 $universal-study-review，基于已有资料查阅清单，按章节生成复习脉络。每章包含核心概念、公式条件、典型题型、易错点和资料定位。</code></pre></div>
+          <div><h3>想生成题型库</h3><button class="copy" data-target="sc-3">复制</button><pre><code id="sc-3">使用 $universal-study-review，根据课程资料和题目，建立题型库与标准解题模板。每类题写清识别方法、标准步骤、最终答案要求和检查方法。</code></pre></div>
+          <div><h3>想做考前速看</h3><button class="copy" data-target="sc-4">复制</button><pre><code id="sc-4">使用 $universal-study-review，根据章节脉络、公式清单、老师重点、题型库和错题，生成考前速看资料。内容要短，但不能丢失关键条件。</code></pre></div>
+          <div><h3>新增资料后更新</h3><button class="copy" data-target="sc-5">复制</button><pre><code id="sc-5">使用 $universal-study-review，读取新增资料并迭代更新已有复习文档。说明新增了什么、修改了什么、哪些内容仍需回原资料核对。</code></pre></div>
+        </div>
+      </section>
+
+      <section id="outputs" class="card">
+        <p class="section-kicker">Outputs</p>
+        <h2>建议输出文件</h2>
+        <pre><code>【学科名称】_资料查阅清单.md
+【学科名称】_全课程知识脉络.md
+【学科名称】_第X章_脉络与公式定位.md
+【学科名称】_课堂重点与资料定位.md
+【学科名称】_题型库与标准解题模板.md
+【学科名称】_错题与易错点清单.md
+【学科名称】_考前速看.md</code></pre>
+      </section>
+
+      <section id="rules" class="card">
+        <p class="section-kicker">Rules</p>
+        <h2>调用 Skill 时的执行规则</h2>
+        <ul>
+          <li>先定位资料来源，再总结或解题。</li>
+          <li>不编造页码、章节、公式、老师要求或题目条件。</li>
+          <li>资料不足时明确说明缺失信息。</li>
+          <li>长文档优先输出 Markdown，并保持标题层级清晰。</li>
+          <li>题目解答必须包含方法选择、公式条件、推导步骤、最终答案和易错点。</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>提示词负责具体功能；Skill 负责把这些功能串成可执行、可维护的复习工作流。</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.copy').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const id = btn.getAttribute('data-target');
+        const text = document.getElementById(id).innerText;
+        try {
+          await navigator.clipboard.writeText(text);
+          const old = btn.innerText;
+          btn.innerText = '已复制';
+          setTimeout(() => btn.innerText = old, 1200);
+        } catch (e) {
+          btn.innerText = '复制失败，请手动选择';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
