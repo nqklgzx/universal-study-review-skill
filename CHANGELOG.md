@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented here.
 
+## 0.2.1 - YAML and homepage structure fix
+
+### Fixed
+
+- Fixed `SKILL.md` YAML front matter parsing errors by converting long descriptions to YAML block scalars.
+- Reworked GitHub Pages homepage so project content appears first and installation commands appear later.
+- Kept GitHub Pages buttons as absolute GitHub links to avoid Pages-relative 404s.
+
 ## 0.2.0 - GitHub Pages and installer upgrade
 
 ### Added
