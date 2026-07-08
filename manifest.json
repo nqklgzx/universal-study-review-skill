@@ -1,0 +1,21 @@
+{
+  "name": "universal-study-review-skill",
+  "created_from": "通用学科复习标准流程与提示词模板.md",
+  "entrypoints": [
+    "SKILL.md",
+    ".agents/skills/universal-study-review/SKILL.md",
+    "docs/index.html"
+  ],
+  "references": [
+    "references/full_workflow_and_prompt_templates.md",
+    "references/prompt_template_library.md",
+    "references/quality_gates.md",
+    "references/skill_design_notes.md"
+  ],
+  "assets": [
+    "study_index_template.md",
+    "module_map_template.md",
+    "problem_solution_template.md",
+    "quick_review_template.md"
+  ]
+}
