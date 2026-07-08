@@ -2,41 +2,76 @@
 
 A reusable, source-grounded study/review workflow that converts any subject’s materials into a structured exam-prep system.
 
+## Quickstart (one-command installation)
+
+### Option 1: Skills installer
+
+Install through the skills ecosystem:
+
+```bash
+npx skills@latest add nqklgzx/universal-study-review-skill
+```
+
+After installation, select:
+
+```text
+universal-study-review
+```
+
+Then run in your agent:
+
+```text
+Use $universal-study-review to build a material index and review workflow for this course.
+```
+
+### Option 2: Windows PowerShell
+
+From the repository root:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\install-codex-skill.ps1 -TargetRepo "D:\Your\CourseRepo" -Force -UpdateAgents
+```
+
+Or install directly from GitHub into the current folder:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/nqklgzx/universal-study-review-skill/main/scripts/bootstrap-codex-skill.ps1 | iex"
+```
+
+CMD users can run:
+
+```cmd
+scripts\install-codex-skill.cmd -TargetRepo "D:\Your\CourseRepo" -Force -UpdateAgents
+```
+
 ## What this repository contains
 
 - `SKILL.md` — standalone Agent Skill manifest and workflow instructions.
 - `.agents/skills/universal-study-review/` — repo-scoped Codex skill location.
+- `skills/study/universal-study-review/` — skills ecosystem compatible skill package.
+- `skills/study/setup-universal-study-review/` — one-time repository setup workflow.
 - `references/` — complete workflow, prompt template library, quality gates, and skill design notes.
 - `assets/` — fill-in templates for indexes, module maps, problem solutions, and quick-review sheets.
+- `scripts/` — Windows installers and bootstrap scripts.
 - `docs/` — static GitHub Pages site for browsing and copying prompts.
 
 ## Use with Codex
 
-For repo-scoped use, keep this folder in a repository with:
+For repo-scoped use, install:
 
 ```text
 .agents/skills/universal-study-review/SKILL.md
 ```
 
-Then ask Codex for tasks such as:
+Then ask Codex:
 
 ```text
-Use the universal-study-review skill to turn these course materials into a source-grounded review workflow.
+Use $universal-study-review to turn these course materials into a source-grounded review workflow.
 ```
-
-or:
-
-```text
-Use $universal-study-review to build a material index and chapter review map for this course.
-```
-
-## Use as a standalone skill bundle
-
-The repository root also contains `SKILL.md`, `references/`, and `assets/`, so the top-level folder can be zipped and used as a standalone skill bundle.
 
 ## Publish as GitHub Pages
 
-This repo includes a static site in `docs/`. In GitHub repository settings, set Pages source to the branch you use and the `/docs` folder.
+This repo includes a static site in `docs/`. Configure GitHub Pages to publish the `/docs` folder.
 
 ## Recommended workflow
 
