@@ -3,175 +3,225 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Universal Study Review Skill</title>
+  <title>通用学科复习提示词集</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <p class="eyebrow">Agent Skill · Study Workflow · Source-Grounded Review</p>
-    <h1>通用学科复习标准流程与提示词 Skill</h1>
-    <p class="lead">一个面向任何学科的复习工作流项目：把教材、PPT、笔记、录音、题库和错题整理成“可查阅、可复用、可迭代”的 AI 复习系统。</p>
+    <p class="eyebrow">Prompt Collection · Study Workflow · Source-Grounded Review</p>
+    <h1>通用学科复习提示词集</h1>
+    <p class="lead">一套可复制、可迁移到任何学科的复习提示词。核心内容是 S00–S12 标准提示词，工作流只作为使用顺序辅助。</p>
     <div class="actions">
-      <a href="#overview">项目介绍</a>
-      <a href="#workflow">工作流</a>
-      <a href="https://github.com/nqklgzx/universal-study-review-skill" target="_blank" rel="noopener">进入 GitHub 项目</a>
-      <a href="https://github.com/nqklgzx/universal-study-review-skill/blob/main/references/prompt_template_library.md" target="_blank" rel="noopener">提示词库</a>
+      <a href="https://github.com/nqklgzx/universal-study-review-skill" target="_blank" rel="noopener">GitHub 项目地址</a>
+      <a href="https://github.com/nqklgzx/universal-study-review-skill/blob/main/references/prompt_template_library.md" target="_blank" rel="noopener">完整提示词库</a>
+      <a href="https://github.com/nqklgzx/universal-study-review-skill/blob/main/SKILL.md" target="_blank" rel="noopener">SKILL.md</a>
     </div>
   </header>
 
   <main>
     <aside class="toc">
-      <h2>页面目录</h2>
-      <a href="#overview">项目介绍</a>
-      <a href="#problems">解决的问题</a>
-      <a href="#workflow">复习工作流</a>
-      <a href="#outputs">产物结构</a>
-      <a href="#examples">示例场景</a>
-      <a href="#files">项目文件结构</a>
-      <a href="#install">安装与使用</a>
-      <a href="#links">常用入口</a>
+      <h2>提示词目录</h2>
+      <a href="#usage">使用顺序</a>
+      <a href="#s00">S00 设定角色</a>
+      <a href="#s01">S01 资料清单</a>
+      <a href="#s02">S02 全课脉络</a>
+      <a href="#s03">S03 章节整理</a>
+      <a href="#s04">S04 公式方法</a>
+      <a href="#s05">S05 课堂重点</a>
+      <a href="#s06">S06 题型模板</a>
+      <a href="#s07">S07 概念精讲</a>
+      <a href="#s08">S08 标准解题</a>
+      <a href="#s09">S09 错题复盘</a>
+      <a href="#s10">S10 考前速看</a>
+      <a href="#s11">S11 定位问答</a>
+      <a href="#s12">S12 迭代更新</a>
+      <a href="#project">项目入口</a>
     </aside>
 
     <div class="content">
-      <section id="overview" class="card hero-card">
-        <p class="section-kicker">Project Overview</p>
-        <h2>这是什么项目</h2>
-        <p>Universal Study Review Skill 是一套通用的 AI 复习工作流。它不是单一提示词，而是一组可部署到 GitHub、Codex、Markdown 软件和网页中的复习流程模板。</p>
-        <p>核心目标是：先建立资料索引，再重构课程知识脉络，再融合老师重点和题型训练，最后生成考前速看材料。后续所有问答都先定位资料来源，再进行解释或解题。</p>
+      <section id="usage" class="card hero-card">
+        <p class="section-kicker">How to use</p>
+        <h2>怎么使用这套提示词</h2>
+        <p>第一次整理一门课，建议按顺序执行：S00 → S01 → S02 → S03/S04 → S05 → S06 → S08/S09 → S10。后续单独提问时，直接使用 S11。</p>
         <div class="tag-list">
-          <span>资料查阅清单</span>
-          <span>章节知识脉络</span>
-          <span>公式与方法提取</span>
-          <span>题型库</span>
-          <span>错题复盘</span>
-          <span>考前速看</span>
-          <span>Codex Skill</span>
-          <span>GitHub Pages</span>
+          <span>先建索引</span><span>再梳理章节</span><span>再抽取公式</span><span>再训练题型</span><span>最后考前速看</span>
         </div>
       </section>
 
-      <section id="problems" class="card">
-        <p class="section-kicker">Why</p>
-        <h2>它解决什么问题</h2>
-        <div class="feature-grid">
-          <div>
-            <h3>资料多但不可查</h3>
-            <p>PPT、教材、笔记、题库堆在一起时，先生成资料索引，保留文件结构、章节定位和使用规则。</p>
-          </div>
-          <div>
-            <h3>总结太概括</h3>
-            <p>要求按章节、页码、公式、条件、题型和易错点整理，不用空泛概括替代具体内容。</p>
-          </div>
-          <div>
-            <h3>AI 容易脱离资料</h3>
-            <p>后续问答默认先查阅资料清单，再定位原文件，无法验证时明确说明缺失信息。</p>
-          </div>
-          <div>
-            <h3>做题过程不标准</h3>
-            <p>题目解答按“考点定位—读题分析—解题思路—具体推导—最终答案—易错点”输出。</p>
-          </div>
-        </div>
-      </section>
+      <section id="s00" class="card"><p class="section-kicker">S00</p><h2>设定复习助手角色</h2><p class="purpose">用于新建一个学科复习项目，固定 AI 的回答风格和资料使用规则。</p><button class="copy" data-target="p-s00">复制提示词</button><pre><code id="p-s00">你现在是我的【学科名称】复习助手，定位是该学科的资深教师/教练。你的任务是帮助我完成课程复习、资料整理、知识点理解、题型训练和考前速看。
 
-      <section id="workflow" class="card">
-        <p class="section-kicker">Workflow</p>
-        <h2>标准复习工作流</h2>
-        <div class="flow-grid">
-          <div><strong>S00</strong><span>设定复习助手角色</span></div>
-          <div><strong>S01</strong><span>遍历资料并建立查阅清单</span></div>
-          <div><strong>S02</strong><span>建立全课程知识脉络</span></div>
-          <div><strong>S03</strong><span>按章节或模块整理资料结构</span></div>
-          <div><strong>S04</strong><span>提取公式、定义、结论与方法</span></div>
-          <div><strong>S05</strong><span>融合课堂重点、录音、教师要求</span></div>
-          <div><strong>S06</strong><span>建立题型库与标准解题模板</span></div>
-          <div><strong>S07</strong><span>深入讲解单个知识点</span></div>
-          <div><strong>S08</strong><span>标准化解答具体题目</span></div>
-          <div><strong>S09</strong><span>整理错题、易错点和辨析点</span></div>
-          <div><strong>S10</strong><span>生成考前速看资料</span></div>
-          <div><strong>S11</strong><span>后续问答时按资料定位回答</span></div>
-          <div><strong>S12</strong><span>迭代更新资料库和提示词</span></div>
-        </div>
-      </section>
+请遵守以下要求：
+1. 以考试复习为目标，回答准确、结构清晰、可用于复习。
+2. 如果我提供了教材、PPT、笔记、题库、录音总结或其他资料，回答前应优先基于这些资料。
+3. 涉及页码、章节、图表、公式、题目条件时，必须先定位资料来源。
+4. 若资料不足以支持结论，必须说明缺失信息，不能自行补充成确定事实。
+5. 题目解答优先按“考点定位—解题思路—具体解答—最终答案—易错点提示”输出。
+6. 概念讲解优先按“准确结论—概念本质—公式/定义/适用条件—典型题型—易混淆点—复习建议”输出。
+7. 使用中文，结构化输出，不省略关键推导，不使用空泛总结代替具体内容。</code></pre></section>
 
-      <section id="outputs" class="card">
-        <p class="section-kicker">Outputs</p>
-        <h2>最终会得到哪些复习产物</h2>
-        <div class="feature-grid">
-          <div><h3>资料查阅清单</h3><p>列出每个文件的内容、结构、章节定位、可查阅知识点和后续使用规则。</p></div>
-          <div><h3>章节/模块脉络</h3><p>按资料原顺序整理每部分讲什么、公式条件、题型对应和重要程度。</p></div>
-          <div><h3>题型库与模板</h3><p>把知识点转化为标准题型，形成可复用的解题步骤和检查方法。</p></div>
-          <div><h3>考前速看资料</h3><p>压缩为高频考点、核心公式、适用条件、标准方法和最后易错点。</p></div>
-        </div>
-      </section>
+      <section id="s01" class="card"><p class="section-kicker">S01</p><h2>遍历资料并建立查阅清单</h2><p class="purpose">把所有资料变成可查阅索引，方便后续先定位资料再回答。</p><button class="copy" data-target="p-s01">复制提示词</button><pre><code id="p-s01">请遍历我提供的所有【学科名称】资料，生成一份 Markdown 查阅清单，方便后续 AI 回答问题时先查阅该清单，再去对应文件中定位内容。
 
-      <section id="examples" class="card">
-        <p class="section-kicker">Examples</p>
-        <h2>示例场景</h2>
-        <div class="link-grid">
-          <a href="https://github.com/nqklgzx/universal-study-review-skill/blob/main/examples/signals-and-systems.md" target="_blank" rel="noopener">信号与系统复习示例</a>
-          <a href="https://github.com/nqklgzx/universal-study-review-skill/blob/main/examples/digital-logic.md" target="_blank" rel="noopener">数字电路复习示例</a>
-          <a href="https://github.com/nqklgzx/universal-study-review-skill/blob/main/examples/ai-math-foundations.md" target="_blank" rel="noopener">人工智能数学基础复习示例</a>
-        </div>
-      </section>
+要求：
+1. 列出所有已提供文件，标明文件类型，例如教材、PPT、笔记、题库、作业、录音总结、考试说明等。
+2. 对每个文件分别整理：文件名、文件类型、主要内容、章节结构、可查阅知识点、适合用于哪些复习任务。
+3. 如果有页码、幻灯片页码、章节号，请保留定位信息。
+4. 按课程章节或知识模块建立“模块—资料文件—章节/页码—主要知识点—常见题型—复习优先级”的映射。
+5. 在文档开头写明后续使用规则：回答问题前先定位章节，再定位资料；涉及公式、图、表、题目条件时回原文件核对；不确定时说明缺失信息。
+6. 输出 Markdown，标题层级清晰，方便目录跳转；不要只做概括，要尽量保留文件结构。</code></pre></section>
 
-      <section id="files" class="card">
-        <p class="section-kicker">Repository</p>
-        <h2>项目文件结构</h2>
-        <pre><code>universal-study-review-skill/
-├── SKILL.md
-├── README.md
-├── AGENTS.md
-├── scripts/
-├── references/
-├── assets/
-├── docs/
-├── skills/study/
-├── examples/
-├── evals/
-└── .agents/skills/universal-study-review/</code></pre>
-      </section>
+      <section id="s02" class="card"><p class="section-kicker">S02</p><h2>建立全课程知识脉络</h2><p class="purpose">把整门课从资料堆整理成知识地图。</p><button class="copy" data-target="p-s02">复制提示词</button><pre><code id="p-s02">请根据我提供的【学科名称】资料，整理整门课程的知识脉络。目标是让我快速理解这门课的整体结构，以及各章节之间的关系。
 
-      <section id="install" class="card install-card">
-        <p class="section-kicker">Install</p>
-        <h2>安装与使用</h2>
-        <p class="purpose">安装命令放在这里，作为项目内容之后的使用入口。</p>
+要求：
+1. 用一棵知识树展示整门课的结构。
+2. 每个一级模块说明它解决什么问题；每个二级模块说明它包含哪些知识点。
+3. 说明各章节之间的逻辑关系：哪些是基础概念，哪些是核心方法，哪些是应用，哪些是考试题型集中区域。
+4. 对每个模块标注复习优先级：高频核心、重要但偏理解、低频补充、仅需了解。
+5. 每个模块写明对应文件、对应章节、对应页码或幻灯片页码，以及需要回原图核对的内容。
+6. 输出 Markdown，标题层级清晰；不要写成泛泛总结，每个模块都要说明“学它是为了解决什么问题”。</code></pre></section>
 
-        <h3>方式一：skills 安装器</h3>
-        <button class="copy" data-target="cmd-npx">复制命令</button>
+      <section id="s03" class="card"><p class="section-kicker">S03</p><h2>按章节或模块整理资料结构</h2><p class="purpose">适合整理某一章 PPT、教材或讲义。</p><button class="copy" data-target="p-s03">复制提示词</button><pre><code id="p-s03">请帮我整理【学科名称】中【章节/模块名称】的资料脉络。该部分资料内容较多，可能包含大量例题、图片、公式或重复说明。请把它整理成适合复习的 Markdown 文档。
+
+要求：
+1. 说明本章属于整门课的哪个部分、主要解决什么问题、和前后章节有什么联系。
+2. 按资料原有顺序整理每一部分：标题、讲了什么、核心概念、重要程度、对应页码/PPT页码/资料位置。
+3. 对每个知识点整理：核心公式、适用条件、二级结论、推导思路、常见变形、易错点。
+4. 说明每个知识点对应什么题型：概念判断题、计算题、证明题、综合题、图表分析题、材料题或论述题。
+5. 保留资料页码或位置；对公式、图表、例题提示是否需要回原资料核对。
+6. 最后给出本章复习路径。</code></pre></section>
+
+      <section id="s04" class="card"><p class="section-kicker">S04</p><h2>提取公式、定义、结论与方法</h2><p class="purpose">生成公式表、定义表和方法清单。</p><button class="copy" data-target="p-s04">复制提示词</button><pre><code id="p-s04">请从【章节/模块名称】中提取适合考试复习的公式、定义、关键结论和方法步骤。
+
+要求：
+1. 定义：整理定义名称、标准表述、适用范围、判断关键词、易混淆对象。
+2. 公式：整理公式名称、表达式、符号含义、适用条件、常见变形、使用限制、典型题型。
+3. 方法：整理方法名称、适用题型、标准步骤、关键判断点、常见错误、检查方法。
+4. 辨析：对容易混淆的概念或公式说明相同点、不同点、题目中如何判断、考试中如何书写。
+5. 输出 Markdown，按“定义—公式—方法—辨析—易错点”组织；公式必须写清适用条件，不要只列公式，要说明什么时候用。</code></pre></section>
+
+      <section id="s05" class="card"><p class="section-kicker">S05</p><h2>融合课堂重点、录音、教师要求</h2><p class="purpose">把老师强调和考试说明映射回资料位置。</p><button class="copy" data-target="p-s05">复制提示词</button><pre><code id="p-s05">请根据我提供的课堂录音总结、课堂笔记或教师要求，结合【学科名称】资料，整理一份“课堂重点与资料定位”文档。
+
+要求：
+1. 把老师相关信息分为：明确强调的重点、明确说过可弱化或不重点关注的内容、提到但未明确重要程度的内容、与考试范围/题型/答题方式有关的要求。
+2. 对每一条课堂信息定位到：对应章节、对应教材/PPT/讲义、对应页码或幻灯片页码、对应知识点、是否需要回原图/公式/例题核对。
+3. 根据老师表述标注复习优先级：重点掌握、熟练会做、理解即可、了解即可、暂不优先。
+4. 只有老师明确说过的内容，才标为“重点”或“可弱化”；老师没提到的内容按正常复习处理，不能写成不用复习。
+5. 不确定的地方必须标注“不确定原因”。
+6. 输出 Markdown，每条重点都要有资料定位，最后给出基于教师要求的复习顺序。</code></pre></section>
+
+      <section id="s06" class="card"><p class="section-kicker">S06</p><h2>建立题型库与标准解题模板</h2><p class="purpose">把知识点转化为考试题型和标准步骤。</p><button class="copy" data-target="p-s06">复制提示词</button><pre><code id="p-s06">请根据【学科名称】的资料和题目，建立一份题型库与标准解题模板。
+
+要求：
+1. 按考试常见形式整理题型：题型名称、对应章节、核心考点、常见问法、常见陷阱。
+2. 对每一类题写出标准解题模板：读题先看什么、如何判断考点、使用哪些定义/公式/定理、标准步骤、何时分情况讨论、最终答案应包含哪些信息、如何检查答案。
+3. 每类题至少列出典型例题定位：资料来源、例题编号或页码、核心方法、是否适合作为模板题。
+4. 每类题整理易错点：容易漏掉的条件、容易用错的公式、容易写错的符号、容易混淆的概念、检查方法。
+5. 输出 Markdown；不要只列题目，要抽象出方法，语言要适合考试复习。</code></pre></section>
+
+      <section id="s07" class="card"><p class="section-kicker">S07</p><h2>深入讲解单个知识点</h2><p class="purpose">当某个概念看不懂时使用。</p><button class="copy" data-target="p-s07">复制提示词</button><pre><code id="p-s07">我现在看不懂【知识点名称】。请按照考试复习的方式讲清楚。
+
+要求：
+1. 先给准确结论，用简洁的话说明这个知识点到底是什么。
+2. 解释本质：它为什么被提出、解决什么问题、和前后知识点的关系、在题目中通常起什么作用。
+3. 如果涉及公式，请说明公式、符号含义、公式来源、适用条件、不满足条件时会出现什么问题。
+4. 如果容易和其他概念混淆，请对比相同点、不同点、题目中如何区分、哪种问法对应哪种方法。
+5. 说明考试应用：常见题型、解题第一步看什么、标准书写方式、常见错误、检查方法。
+6. 不要只给定义，不要跳过关键推理；尽量结合一个简单例子说明；资料条件不足时指出需要补充什么。</code></pre></section>
+
+      <section id="s08" class="card"><p class="section-kicker">S08</p><h2>标准化解答具体题目</h2><p class="purpose">用于具体题目的完整过程。</p><button class="copy" data-target="p-s08">复制提示词</button><pre><code id="p-s08">请按【学科名称】考试标准流程解答这道题。
+
+题目如下：
+【粘贴题目或上传图片】
+
+要求：
+一、考点定位
+判断本题属于哪一章或模块，考查哪些定义、公式、方法或定理，属于哪类题型。
+
+二、读题分析
+提取已知条件、明确所求内容、标出隐含条件；如果题目信息不足，先说明缺失条件。
+
+三、解题思路
+说明为什么选择该方法；如果有多种方法，说明最适合考试书写的方法；说明需要注意的条件或分情况讨论。
+
+四、具体解答
+写出使用的公式、定义或定理；按步骤推导；关键变形不能跳步；涉及图、表、区间、边界、条件、单位或符号时必须写清楚。
+
+五、最终答案
+清楚给出最终结果；如果答案有适用范围、条件、单位、区间或其他限制，必须一并写出。
+
+六、易错点提示
+说明本题最容易错在哪里、如何检查答案、哪些条件不能漏。</code></pre></section>
+
+      <section id="s09" class="card"><p class="section-kicker">S09</p><h2>整理错题、易错点和辨析点</h2><p class="purpose">把错题变成可复习卡片。</p><button class="copy" data-target="p-s09">复制提示词</button><pre><code id="p-s09">请帮我整理这道错题，目标是让我以后遇到同类题不会再错。
+
+题目：
+【粘贴题目】
+
+我的错误解法或疑问：
+【粘贴你的过程或疑问】
+
+标准答案或参考答案：
+【如果有就粘贴，没有就写“暂无”】
+
+要求：
+1. 错因定位：我错在概念理解、公式选择、条件判断、计算过程、符号书写还是审题；具体是哪一步错；为什么容易错。
+2. 正确解法：给出标准解题流程，写清关键公式和适用条件，说明正确答案如何得到。
+3. 同类题识别：以后看到什么关键词或结构就该想到这种方法；哪些题看起来相似但不能用这种方法；如何快速判断。
+4. 最后输出一张“错题卡片”：错题标签、核心考点、错因一句话、正确方法一句话、检查方法、需要背下来的提醒。
+5. 不要只改正答案，重点解释为什么会错。</code></pre></section>
+
+      <section id="s10" class="card"><p class="section-kicker">S10</p><h2>生成考前速看资料</h2><p class="purpose">把长期整理压缩成临考前快速翻阅材料。</p><button class="copy" data-target="p-s10">复制提示词</button><pre><code id="p-s10">请根据我提供的【学科名称】复习资料，整理一份考前速看资料。
+
+输入资料包括：章节脉络、公式与定义、题型库、老师重点、错题和易错点、考试范围。
+
+要求：
+1. 内容面向考前快速翻阅，不写空泛总结，只保留高价值内容。
+2. 每条内容尽量短，但不能丢失关键条件。
+3. 按章节或模块整理，每章包括：高频考点、必背定义、核心公式、公式适用条件、常见题型、标准方法、易错点、检查方法。
+4. 老师明确强调的内容优先放前面；高频题型优先放前面；易错点单独集中整理；相似概念做简短辨析。
+5. 输出 Markdown，标题层级清晰，方便目录跳转；最后给出考前最后一遍复习路线。</code></pre></section>
+
+      <section id="s11" class="card"><p class="section-kicker">S11</p><h2>后续问答时按资料定位回答</h2><p class="purpose">后续任何问题都先定位资料再回答。</p><button class="copy" data-target="p-s11">复制提示词</button><pre><code id="p-s11">请回答下面这个【学科名称】问题。回答前请先根据已有资料查阅清单和章节脉络定位知识点，再进行解释或解题。
+
+问题：
+【粘贴问题】
+
+要求：
+1. 先定位：判断问题属于哪个章节或模块，说明应查阅哪些资料；如果涉及页码、图表、公式或题目条件，请说明需要核对的位置。
+2. 如果是概念题：按“准确结论—概念本质—公式或定义—适用条件—易混淆点—典型题型”回答。
+3. 如果是计算题或证明题：按“考点定位—解题思路—具体解答—最终答案—易错点提示”回答。
+4. 如果是资料定位题：给出对应文件、对应章节、对应页码或位置、该位置包含的内容、后续应如何使用。
+5. 不要脱离资料随意发挥；资料不足时说明不足；不确定的地方不能写成确定结论。</code></pre></section>
+
+      <section id="s12" class="card"><p class="section-kicker">S12</p><h2>迭代更新资料库和提示词</h2><p class="purpose">新增资料、新题型、新错题后更新旧文档。</p><button class="copy" data-target="p-s12">复制提示词</button><pre><code id="p-s12">请根据新资料和新要求，迭代更新我已有的【学科名称】复习文档。
+
+已有文档：
+【粘贴或上传旧文档】
+
+新增资料/新要求：
+【粘贴或上传新内容】
+
+要求：
+1. 保留旧文档中仍然正确且有价值的内容。
+2. 合并新增资料，修正错误或不准确表述，删除重复、空泛或低价值内容。
+3. 不要因为新增内容而破坏原有结构。
+4. 说明新增了什么、修改了什么、删除或弱化了什么、哪些地方仍不确定、哪些内容需要回原资料核对。
+5. 输出更新后的完整 Markdown，保持标题层级清晰，关键提示词保持可复制。
+6. 不要只输出修改建议，要输出可直接使用的新版本。</code></pre></section>
+
+      <section id="project" class="card install-card">
+        <p class="section-kicker">Project</p>
+        <h2>项目地址与安装</h2>
+        <p>项目地址：<a href="https://github.com/nqklgzx/universal-study-review-skill" target="_blank" rel="noopener">https://github.com/nqklgzx/universal-study-review-skill</a></p>
+        <button class="copy" data-target="cmd-npx">复制安装命令</button>
         <pre><code id="cmd-npx">npx skills@latest add nqklgzx/universal-study-review-skill</code></pre>
-
-        <h3>方式二：Windows PowerShell 远程安装到当前仓库</h3>
-        <button class="copy" data-target="cmd-ps-remote">复制命令</button>
-        <pre><code id="cmd-ps-remote">powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/nqklgzx/universal-study-review-skill/main/scripts/bootstrap-codex-skill.ps1 | iex"</code></pre>
-
-        <h3>方式三：本地克隆后安装到目标仓库</h3>
-        <button class="copy" data-target="cmd-ps-local">复制命令</button>
-        <pre><code id="cmd-ps-local">powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\install-codex-skill.ps1 -TargetRepo "D:\Your\CourseRepo" -Force -UpdateAgents</code></pre>
-
-        <h3>Codex 调用</h3>
-        <button class="copy" data-target="cmd-codex-zh">复制中文调用</button>
-        <pre><code id="cmd-codex-zh">使用 $universal-study-review，把这门课的资料整理成复习查阅清单、章节脉络、题型模板和考前速看资料。</code></pre>
-      </section>
-
-      <section id="links" class="card">
-        <p class="section-kicker">Links</p>
-        <h2>常用入口</h2>
-        <div class="link-grid">
-          <a href="https://github.com/nqklgzx/universal-study-review-skill" target="_blank" rel="noopener">GitHub 项目主页</a>
-          <a href="https://github.com/nqklgzx/universal-study-review-skill/blob/main/SKILL.md" target="_blank" rel="noopener">根目录 SKILL.md</a>
-          <a href="https://github.com/nqklgzx/universal-study-review-skill/tree/main/scripts" target="_blank" rel="noopener">Windows 安装脚本</a>
-          <a href="https://github.com/nqklgzx/universal-study-review-skill/tree/main/skills/study" target="_blank" rel="noopener">Skills 分类目录</a>
-          <a href="https://github.com/nqklgzx/universal-study-review-skill/blob/main/references/full_workflow_and_prompt_templates.md" target="_blank" rel="noopener">完整 Markdown</a>
-          <a href="https://github.com/nqklgzx/universal-study-review-skill/blob/main/references/prompt_template_library.md" target="_blank" rel="noopener">提示词库</a>
-          <a href="https://github.com/nqklgzx/universal-study-review-skill/tree/main/examples" target="_blank" rel="noopener">示例目录</a>
-          <a href="https://github.com/nqklgzx/universal-study-review-skill/tree/main/evals" target="_blank" rel="noopener">Evals 测试集</a>
-        </div>
+        <button class="copy" data-target="cmd-codex">复制 Codex 调用</button>
+        <pre><code id="cmd-codex">使用 $universal-study-review，把这门课的资料整理成复习查阅清单、章节脉络、题型模板和考前速看资料。</code></pre>
       </section>
     </div>
   </main>
 
   <footer>
-    <p>Source-grounded study workflow. Do not invent unsupported page numbers, formulas, or problem conditions.</p>
+    <p>提示词优先；工作流只用于规定使用顺序。后续回答应先定位资料，再解释或解题。</p>
   </footer>
 
   <script>
